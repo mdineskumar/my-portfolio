@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Cloud Command Center</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- You can add FontAwesome for icons if you like -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+</head>
+<body>
+    <div class="command-center">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/profile.jpg" alt="Your Name" class="profile-pic">
+                <h2>Your Name</h2>
+                <p>Cloud & DevOps Enthusiast</p>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" data-target="profile" class="active"><i class="fas fa-user-circle"></i> Profile_Service</a></li>
+                    <li><a href="#" data-target="skills"><i class="fas fa-cogs"></i> Skill_Orchestrator</a></li>
+                    <li><a href="#" data-target="experience"><i class="fas fa-briefcase"></i> Experience_Pipeline</a></li>
+                    <li><a href="#" data-target="projects"><i class="fas fa-rocket"></i> Project_Deployments</a></li>
+                    <li><a href="#" data-target="contact"><i class="fas fa-envelope"></i> Comms_Channel</a></li>
+                    <li><a href="#" data-target="aws-info"><i class="fab fa-aws"></i> Site_Infrastructure</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="assets/resume.pdf" target="_blank" class="btn-resume">Download Resume_Instance (PDF)</a>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <section id="profile" class="content-section active-section">
+                <h1>Profile_Service</h1>
+                <p>Welcome to my command center! I am [Your Name], a passionate and results-oriented [Your Title/Aspiration, e.g., AWS Certified Solutions Architect Associate] with a keen interest in cloud technologies, automation, and building scalable solutions.</p>
+                <p>My objective is to leverage my skills and certifications to contribute to innovative projects and grow as a cloud professional.</p>
+                <p><strong>Status:</strong> <span class="status-online">ONLINE</span> (Actively seeking opportunities)</p>
+            </section>
+
+            <section id="skills" class="content-section">
+                <h1>Skill_Orchestrator</h1>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h3>AWS</h3>
+                        <p>S3, EC2, VPC, IAM, Lambda, CloudFormation, Route 53, CloudFront (Mention services you know)</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Languages</h3>
+                        <p>Python, JavaScript, Bash (Your languages)</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Tools</h3>
+                        <p>Git, Docker, Jenkins, Terraform (Your tools)</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Concepts</h3>
+                        <p>CI/CD, IaC, Agile, DevOps, Networking</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="content-section">
+                <h1>Experience_Pipeline</h1>
+                <div class="experience-item">
+                    <h3>Previous Role / Project | Company Name</h3>
+                    <p><em>Jan 20XX - Dec 20XX</em></p>
+                    <ul>
+                        <li>Achievement or responsibility 1.</li>
+                        <li>Achievement or responsibility 2.</li>
+                        <li>Used [Tech A, Tech B] to accomplish [Goal C].</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Another Role / Academic Project | University/Company</h3>
+                    <p><em>Aug 20XX - May 20XX</em></p>
+                    <ul>
+                        <li>Details about the project or role.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="projects" class="content-section">
+                <h1>Project_Deployments</h1>
+                <div class="project-item">
+                    <h3>This Portfolio Website</h3>
+                    <p>A creative static website showcasing my resume and AWS deployment skills.</p>
+                    <p><strong>Tech:</strong> HTML, CSS, JavaScript, AWS S3, CloudFront, Route 53.</p>
+                    <p><a href="[Your GitHub Repo Link for this site]" target="_blank">View on GitHub</a></p>
+                </div>
+                <div class="project-item">
+                    <h3>Other Project Name</h3>
+                    <p>Brief description of another project.</p>
+                    <p><strong>Tech:</strong> [List technologies used]</p>
+                    <p><a href="[Link to Project or its GitHub]" target="_blank">View Project/Code</a></p>
+                </div>
+            </section>
+
+            <section id="contact" class="content-section">
+                <h1>Comms_Channel</h1>
+                <p>Let's connect! Feel free to reach out via:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="[Your LinkedIn URL]" target="_blank">[Your LinkedIn Profile]</a></li>
+                    <li><strong>GitHub:</strong> <a href="[Your GitHub URL]" target="_blank">[Your GitHub Profile]</a></li>
+                </ul>
+            </section>
+
+            <section id="aws-info" class="content-section">
+                <h1>Site_Infrastructure_Log</h1>
+                <pre class="code-block">
+Site Deployment Details:
+--------------------------
+- Hosting: AWS S3 (Static Website Hosting)
+- CDN: Amazon CloudFront (Global Delivery & HTTPS)
+- DNS: Amazon Route 53 (If using custom domain)
+- Certificate: AWS Certificate Manager (for HTTPS via CloudFront)
+- Version Control: Git & GitHub
+- Build: Manual Upload (Future: CI/CD with GitHub Actions)
+
+Status: All Systems Nominal.
+                </pre>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
