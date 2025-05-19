@@ -256,3 +256,90 @@ body {
         padding: 20px;
     }
 }
+
+/* --- Profile Card Styles --- */
+.profile-card {
+    background-color: var(--sidebar-bg); /* Or a slightly lighter/darker shade for contrast */
+    /* Example: background-color: #2a2c44; */
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    margin-top: 20px; /* Space below the "Profile_Service" h1 title */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.profile-card-header .profile-name {
+    color: #ffffff; /* Brighter white for name */
+    font-size: 1.8em; /* Adjust as needed */
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.profile-card-header .profile-subtitle {
+    color: var(--accent-color); /* Use your theme's accent color */
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.profile-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), var(--border-color), rgba(0,0,0,0));
+    margin: 20px 0;
+}
+
+.profile-card-body p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: var(--text-color); /* Ensure body text uses theme color */
+}
+
+.profile-focus-area {
+    background-color: rgba(0,0,0, 0.15); /* Subtle darker background for this area */
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+    border-left: 4px solid var(--highlight-color); /* AWS Orange for emphasis */
+}
+
+.profile-focus-area h4 {
+    color: var(--highlight-color); /* AWS Orange */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.profile-focus-area p {
+    margin-bottom: 5px; /* Reduce margin for paragraphs inside focus area */
+    font-size: 0.95em;
+}
+
+.profile-objective strong {
+    color: #fff; /* Make the "Objective:" label stand out a bit */
+}
+
+.profile-card-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    text-align: right; /* Align status to the right, or center/left as you prefer */
+    font-size: 0.9em;
+}
+
+.profile-card-footer .status-focused {
+    /* status-focused style is already defined, but you can override/add here if needed */
+    /* For example, if you want it slightly different in the card footer: */
+    /* font-weight: 500; */
+}
+
+/* Adjust H1 margin if the card adds enough top space */
+#profile > h1 { /* Target the H1 specifically in the profile section */
+    margin-bottom: 15px; /* Reduce space between H1 and card if needed */
+}
