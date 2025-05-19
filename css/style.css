@@ -343,3 +343,79 @@ body {
 #profile > h1 { /* Target the H1 specifically in the profile section */
     margin-bottom: 15px; /* Reduce space between H1 and card if needed */
 }
+
+/* --- General Content Card Styles --- */
+.content-card {
+    background-color: var(--sidebar-bg); /* Consistent with profile card */
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-color);
+    margin-bottom: 25px; /* Space between cards */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.content-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.content-card h3 { /* Title within the card */
+    color: #ffffff; /* Brighter white for item titles */
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.content-card h3 .card-subtitle { /* For dates or secondary info in the title line */
+    font-size: 0.7em;
+    font-weight: normal;
+    color: var(--text-color);
+    display: block; /* Makes it appear on a new line or allows for easier right alignment */
+    margin-top: 4px;
+}
+
+.content-card p,
+.content-card ul {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 0.95em;
+}
+
+.content-card ul {
+    list-style: disc;
+    padding-left: 25px;
+}
+
+.content-card ul li {
+    margin-bottom: 6px;
+}
+
+.content-card strong { /* For tech stacks or important keywords */
+    color: var(--highlight-color); /* AWS Orange or your highlight */
+}
+
+.content-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.content-card a:hover {
+    text-decoration: underline;
+}
+
+/* Specific styling for the "Site Infrastructure Log" which uses a <pre> tag */
+#aws-info .code-block { /* Keep the existing preformatted style, but maybe wrap it in a card too */
+    /* If you want the <pre> block itself to be a card: */
+    /* background-color: #111; (already set) */
+    /* padding: 20px; (already set) */
+    /* border-radius: 8px; (add if not set) */
+    /* box-shadow: 0 4px 15px rgba(0,0,0,0.25); (add if not set) */
+    /* border: 1px solid var(--border-color); (already set) */
+    /* margin-bottom: 25px; (add if not set) */
+    /* We'll just ensure it doesn't conflict if it's the only item */
+}

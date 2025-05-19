@@ -20,14 +20,38 @@
             <nav class="main-nav">
                 <ul>
                     <!-- Add <i> tags if you uncomment FontAwesome -->
-                    <li><a href="#" data-target="profile" class="active"> Profile_Service</a></li>
-                    <li><a href="#" data-target="skills"> Skill_Orchestrator</a></li>
-                    <li><a href="#" data-target="experience"> Experience_Pipeline</a></li>
-                    <li><a href="#" data-target="projects"> Project_Deployments</a></li>
-                    <li><a href="#" data-target="education"> Education_Log</a></li>
-                    <li><a href="#" data-target="certifications"> Cert_Registry</a></li>
-                    <li><a href="#" data-target="contact"> Comms_Channel</a></li>
-                    <li><a href="#" data-target="aws-info"> Site_Infrastructure</a></li>
+                    <li><a href="#" data-target="profile" class="active"> 
+                        About Me
+                        <!--Profile_Service--></a></li>
+                    <li><a href="#" data-target="skills"> 
+                        Skills & Technologies 
+                        <!-- Skill_Orchestrator -->
+
+                    </a></li>
+                    <li><a href="#" data-target="experience"> 
+                        Professional Experience
+                        <!-- Experience_Pipeline -->
+                    </a></li>
+                    <li><a href="#" data-target="projects">
+                        Personal Projects
+                         <!-- Project_Deployments -->
+                        </a></li>
+                    <li><a href="#" data-target="education"> 
+                        Education
+                        <!-- Education_Log -->
+                    </a></li>
+                    <li><a href="#" data-target="certifications"> 
+                        Certifications
+                        <!-- Cert_Registry -->
+                    </a></li>
+                    <li><a href="#" data-target="contact">
+                        Get In Touch
+                         <!-- Comms_Channel -->
+                        </a></li>
+                    <li><a href="#" data-target="aws-info"> 
+                        About This Site
+                        <!-- Site_Infrastructure -->
+                    </a></li>
                 </ul>
             </nav>
             <div class="sidebar-footer">
@@ -46,7 +70,7 @@
             <!-- </section> -->
 
                 <section id="profile" class="content-section active-section">
-                <h1>Profile_Service</h1> 
+                <h1> About Me</h1> 
 
                 <div class="profile-card">
                     <div class="profile-card-header">
@@ -76,7 +100,7 @@
             </section>
 
             <section id="skills" class="content-section">
-                <h1>Skill_Orchestrator</h1>
+                <h1>Skills & Technologies</h1>
                 <div class="skills-grid">
                     <div class="skill-item">
                         <h3>Languages</h3>
@@ -102,7 +126,7 @@
             </section>
 
             <section id="experience" class="content-section">
-                <h1>Experience_Pipeline</h1>
+                <h1>Professional Experience</h1>
                  <!-- NEW ROLE ADDED HERE -->
                 <div class="experience-item">
                     <h3>Senior Software Engineer | Persistent Systems</h3>
@@ -148,7 +172,7 @@
             </section>
 
             <section id="projects" class="content-section">
-                <h1>Project_Deployments</h1>
+                <h1>Personal Projects</h1>
                 <div class="project-item">
                     <h3>This Portfolio Website</h3>
                     <p>A creative static website showcasing my resume and demonstrating practical AWS deployment skills.</p>
@@ -194,25 +218,30 @@
             </section>
 
             <section id="education" class="content-section">
-                <h1>Education_Log</h1>
-                <div class="education-item">
-                    <h3>University of Moratuwa</h3>
+                <h1>Education</h1>
+                 <div class="content-card">
+                    <h3>
+                        University of Moratuwa
+                        <span class="card-subtitle">Jan 2018 – Mar 2022 | Moratuwa, Sri Lanka</span>
+                    </h3>
                     <p><strong>B.Sc. Eng. (Hons) Computer Science and Engineering</strong></p>
-                    <p><em>Jan 2018 – Mar 2022 | Moratuwa, Sri Lanka</em></p>
                 </div>
-                <div class="education-item">
-                    <h3>Jaffna Hindu College</h3>
+
+                <div class="content-card">
+                    <h3>
+                        Jaffna Hindu College
+                        <span class="card-subtitle">2016 | Jaffna, Sri Lanka</span>
+                    </h3>
                     <p><strong>G.C.E Advanced Level Examination</strong></p>
-                    <p><em>2016 | Jaffna, Sri Lanka</em></p>
                 </div>
             </section>
 
             <section id="certifications" class="content-section">
-                <h1>Cert_Registry</h1>
+                <h1>Certifications</h1>
                   <!-- NEW CERTIFICATE ADDED HERE -->
-                <div class="certification-item">
+                <div class="content-card">
                     <h3>AWS Certified Cloud Practitioner</h3>
-                    <p>Issued by Amazon Web Services. Validates foundational, high-level understanding of AWS Cloud, services, and terminology. Covers core AWS services, security, architecture, pricing, and support.</p>
+                    <p class="card-subtitle">Issued by Amazon Web Services. Validates foundational, high-level understanding of AWS Cloud, services, and terminology. Covers core AWS services, security, architecture, pricing, and support.</p>
                     <!-- You can add the issue date if you like:
                     <p><em>Issued: [Month Year, e.g., October 2024]</em></p>
                     And if you have a validation link/ID, you could add it:
@@ -221,27 +250,23 @@
                     <p><a href=" https://www.credly.com/badges/f2d15a4a-02cc-4216-997a-16fc7e8da700/linked_in?t=sw7ext" target="_blank">Verify Certificate</a></p>
                    
                 </div>
-                <!-- END OF NEW CERTIFICATE -->
-                <div class="certification-item">
-                    <h3>AWS Fundamentals Specialization (Coursera - In Progress/Partially Completed)</h3>
-                    <p>Completed courses including Cloud Technical Essentials and Migrating to AWS Cloud. Gained knowledge of AWS services including EC2, S3, Lambda, ECS, RDS, DynamoDB, AWS security measures, and IAM with practical labs and exercises.</p>
-                </div>
-                <div class="certification-item">
+                 <div class="content-card">
                     <h3>Natural Language Processing Specialization - DeepLearning.AI (Coursera - In Progress)</h3>
-                    <p>Completed three courses: Classification and Vector Spaces, Probabilistic Models, and Sequence Models. Covers logistic regression, naïve Bayes, HMMs, RNNs, LSTMs, GRUs for sentiment analysis, autocorrect, text generation, NER. One course remaining.</p>
+                    <p class="card-subtitle">Completed three courses: Classification and Vector Spaces, Probabilistic Models, and Sequence Models. Covers logistic regression, naïve Bayes, HMMs, RNNs, LSTMs, GRUs for sentiment analysis, autocorrect, text generation, NER. One course remaining.</p>
                 </div>
-                 <div class="certification-item">
+                  <div class="content-card">
                     <h3>Blockchain Specialization (Coursera - In Progress/Partially Completed)</h3>
-                    <p>Completed courses including Blockchain Basics and Smart Contracts, covering foundational concepts, design, coding, deployment, and execution of smart contracts.</p>
+                    <p class="card-subtitle">Completed courses including Blockchain Basics and Smart Contracts, covering foundational concepts, design, coding, deployment, and execution of smart contracts.</p>
                 </div>
-                <div class="certification-item">
+                 <div class="content-card">
                     <h3>IBM Full Stack Software Developer Professional Certificate - Following (Coursera)</h3>
-                    <p>Completed courses in HTML, CSS, JavaScript, React, Node, Express, Python, Flask, and Django as part of the IBM Full Stack Developer program, including hands-on labs and projects.</p>
+                    <p class="card-subtitle">Completed courses in HTML, CSS, JavaScript, React, Node, Express, Python, Flask, and Django as part of the IBM Full Stack Developer program, including hands-on labs and projects.</p>
                 </div>
             </section>
 
             <section id="contact" class="content-section">
-                <h1>Comms_Channel</h1>
+                <h1>Get In Touch</h1>
+                <div class="content-card">
                 <p>Let's connect! I'm always open to discussing new projects, creative ideas, or opportunities to be part of something great.</p>
                 <ul>
                     <li><strong>Email:</strong> <a href="mailto:murugesapillai.dines@gmail.com">murugesapillai.dines@gmail.com</a></li>
@@ -249,6 +274,7 @@
                     <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dineskumar-murugesapillai/" target="_blank">linkedin.com/in/dineskumar-murugesapillai</a></li>
                     <li><strong>GitHub:</strong> <a href="https://github.com/mdineskumar" target="_blank">github.com/mdineskumar</a></li>
                 </ul>
+                </div>
             </section>
 
             <section id="aws-info" class="content-section">
@@ -257,9 +283,9 @@
 Site Deployment Details:
 --------------------------
 - Hosting: AWS S3 (Static Website Hosting)
-- CDN: Amazon CloudFront (Global Delivery & HTTPS)
+<!-- - CDN: Amazon CloudFront (Global Delivery & HTTPS)
 - DNS: Amazon Route 53 (For custom domain - if configured)
-- Certificate: AWS Certificate Manager (for HTTPS via CloudFront)
+- Certificate: AWS Certificate Manager (for HTTPS via CloudFront) -->
 - Version Control: Git & GitHub
 - Build: Manual Upload (Future Goal: CI/CD with GitHub Actions)
 
