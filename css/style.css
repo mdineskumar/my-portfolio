@@ -145,6 +145,14 @@ body {
     font-weight: bold;
 }
 
+/* New style for 'currently engaged' status */
+.status-focused {
+    color: var(--accent-color); /* This will use your existing accent blue */
+    /* Or choose another color, e.g., a more neutral one:
+    color: #88a0b8;  A soft blue-grey */
+    font-weight: bold;
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
