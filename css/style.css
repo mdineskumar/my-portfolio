@@ -16,13 +16,18 @@
     box-sizing: border-box;
 }
 
+html, body { /* Ensure html also takes full height for 100vh to work consistently */
+    height: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    display: flex;
-    min-height: 100vh;
+    display: flex; /* This helps .command-center if it's the only child, but might not be strictly necessary if html,body are height 100% */
+    /* min-height: 100vh;  Replaced by height: 100% on html, body */
+    overflow: hidden; /* Prevent body scrollbars if command-center handles it all */
 }
 
 .command-center {
@@ -32,6 +37,8 @@ body {
     margin: auto; /* Center it */
     background-color: var(--content-bg);
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    height: 100vh; /* Or 100% if body is already 100vh. Fills viewport height. */
+    overflow: hidden; /* Crucial: Prevents this container from scrolling. Children will handle their own scroll. */
 }
 
 /* Sidebar */
@@ -42,11 +49,14 @@ body {
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--border-color);
+    height: 100%; /* Takes full height of its parent (.command-center) */
+    overflow: hidden; /* Crucial: Prevents sidebar itself from scrolling. Children will scroll. */
 }
 
 .sidebar-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Can be adjusted */
+    flex-shrink: 0; /* Prevent this from shrinking if nav items are too many */
 }
 
 .profile-pic {
@@ -68,8 +78,15 @@ body {
     color: var(--text-color);
 }
 
+.main-nav {
+    flex-grow: 1; /* Crucial: Allows this to take up available space between header and footer */
+    overflow-y: auto; /* Crucial: If nav items exceed space, only this section scrolls */
+    margin-bottom: 15px; /* Optional: Space between nav and footer */
+}
+
 .main-nav ul {
     list-style: none;
+    /* Padding might already be handled by .main-nav, or keep if desired */
 }
 
 .main-nav li a {
@@ -93,8 +110,10 @@ body {
 }
 
 .sidebar-footer {
-    margin-top: auto; /* Pushes to the bottom */
+    /* margin-top: auto; /* Can be removed if .main-nav with flex-grow:1 handles the spacing */
     text-align: center;
+    flex-shrink: 0; /* Prevent this from shrinking */
+    padding-top: 10px; /* Add some padding if margin-top:auto is removed and main-nav margin-bottom is used */
 }
 
 .btn-resume {
@@ -109,14 +128,16 @@ body {
 }
 
 .btn-resume:hover {
-    background-color: darken(var(--highlight-color), 10%);
+    /* background-color: darken(var(--highlight-color), 10%); /* SASS function, won't work directly in CSS */
+    filter: brightness(90%); /* Alternative for CSS only */
 }
 
 /* Content Area */
 .content-area {
     flex: 1;
     padding: 30px;
-    overflow-y: auto; /* Scroll if content overflows */
+    overflow-y: auto; /* Crucial: This is where the main content scrolling happens */
+    height: 100%; /* Takes full height of its parent (.command-center) */
 }
 
 .content-section {
@@ -147,9 +168,7 @@ body {
 
 /* New style for 'currently engaged' status */
 .status-focused {
-    color: var(--accent-color); /* This will use your existing accent blue */
-    /* Or choose another color, e.g., a more neutral one:
-    color: #88a0b8;  A soft blue-grey */
+    color: var(--accent-color);
     font-weight: bold;
 }
 
@@ -160,19 +179,19 @@ body {
     gap: 20px;
 }
 
-.skill-item {
-    background-color: var(--sidebar-bg); /* Re-use sidebar bg for contrast */
+.skill-item { /* This class might be replaced by .content-card now */
+    background-color: var(--sidebar-bg);
     padding: 15px;
     border-radius: 5px;
     border-left: 3px solid var(--accent-color);
 }
 
-.skill-item h3 {
+.skill-item h3 { /* This class might be replaced by .content-card h3 now */
     color: #fff;
     margin-bottom: 10px;
 }
 
-/* Experience & Projects Section */
+/* Experience & Projects Section - These classes are likely replaced by .content-card */
 .experience-item, .project-item {
     background-color: var(--sidebar-bg);
     padding: 20px;
@@ -208,6 +227,7 @@ body {
 /* Contact Section */
 #contact ul {
     list-style: none;
+    padding-left: 0; /* Reset padding if using cards */
 }
 #contact li {
     margin-bottom: 10px;
@@ -223,49 +243,24 @@ body {
 
 /* AWS Info Section */
 .code-block {
-    background-color: #111; /* Even darker for code block */
-    color: #0f0; /* Greenish text, classic terminal */
+    background-color: #111;
+    color: #0f0;
     padding: 15px;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
-    white-space: pre-wrap; /* Keeps formatting */
+    white-space: pre-wrap;
     border: 1px solid var(--border-color);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .command-center {
-        flex-direction: column;
-    }
-    .sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        height: auto; /* Allow sidebar to grow with content */
-    }
-    .main-nav ul {
-        display: flex; /* Horizontal nav on mobile */
-        flex-wrap: wrap; /* Allow wrapping */
-        justify-content: center;
-    }
-    .main-nav li a {
-        padding: 8px 10px;
-        font-size: 0.9em;
-    }
-    .content-area {
-        padding: 20px;
-    }
+    /* If wrapped by content-card, margin-bottom might be handled by content-card */
 }
 
 /* --- Profile Card Styles --- */
 .profile-card {
-    background-color: var(--sidebar-bg); /* Or a slightly lighter/darker shade for contrast */
-    /* Example: background-color: #2a2c44; */
+    background-color: var(--sidebar-bg);
     padding: 25px 30px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
-    margin-top: 20px; /* Space below the "Profile_Service" h1 title */
+    margin-top: 20px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
@@ -275,14 +270,14 @@ body {
 }
 
 .profile-card-header .profile-name {
-    color: #ffffff; /* Brighter white for name */
-    font-size: 1.8em; /* Adjust as needed */
+    color: #ffffff;
+    font-size: 1.8em;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
 .profile-card-header .profile-subtitle {
-    color: var(--accent-color); /* Use your theme's accent color */
+    color: var(--accent-color);
     font-size: 1.1em;
     font-weight: 500;
     margin-bottom: 20px;
@@ -298,60 +293,54 @@ body {
 .profile-card-body p {
     margin-bottom: 15px;
     line-height: 1.7;
-    color: var(--text-color); /* Ensure body text uses theme color */
+    color: var(--text-color);
 }
 
 .profile-focus-area {
-    background-color: rgba(0,0,0, 0.15); /* Subtle darker background for this area */
+    background-color: rgba(0,0,0, 0.15);
     padding: 15px 20px;
     border-radius: 6px;
     margin: 20px 0;
-    border-left: 4px solid var(--highlight-color); /* AWS Orange for emphasis */
+    border-left: 4px solid var(--highlight-color);
 }
 
 .profile-focus-area h4 {
-    color: var(--highlight-color); /* AWS Orange */
+    color: var(--highlight-color);
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.1em;
 }
 
 .profile-focus-area p {
-    margin-bottom: 5px; /* Reduce margin for paragraphs inside focus area */
+    margin-bottom: 5px;
     font-size: 0.95em;
 }
 
 .profile-objective strong {
-    color: #fff; /* Make the "Objective:" label stand out a bit */
+    color: #fff;
 }
 
 .profile-card-footer {
     margin-top: 25px;
     padding-top: 15px;
     border-top: 1px solid var(--border-color);
-    text-align: right; /* Align status to the right, or center/left as you prefer */
+    text-align: right;
     font-size: 0.9em;
 }
 
-.profile-card-footer .status-focused {
-    /* status-focused style is already defined, but you can override/add here if needed */
-    /* For example, if you want it slightly different in the card footer: */
-    /* font-weight: 500; */
-}
-
 /* Adjust H1 margin if the card adds enough top space */
-#profile > h1 { /* Target the H1 specifically in the profile section */
-    margin-bottom: 15px; /* Reduce space between H1 and card if needed */
+#profile > h1 {
+    margin-bottom: 15px;
 }
 
 /* --- General Content Card Styles --- */
 .content-card {
-    background-color: var(--sidebar-bg); /* Consistent with profile card */
+    background-color: var(--sidebar-bg);
     padding: 20px 25px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     border: 1px solid var(--border-color);
-    margin-bottom: 25px; /* Space between cards */
+    margin-bottom: 25px;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
@@ -360,8 +349,8 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
-.content-card h3 { /* Title within the card */
-    color: #ffffff; /* Brighter white for item titles */
+.content-card h3 {
+    color: #ffffff;
     font-size: 1.4em;
     margin-top: 0;
     margin-bottom: 8px;
@@ -369,11 +358,11 @@ body {
     padding-bottom: 8px;
 }
 
-.content-card h3 .card-subtitle { /* For dates or secondary info in the title line */
+.content-card h3 .card-subtitle {
     font-size: 0.7em;
     font-weight: normal;
     color: var(--text-color);
-    display: block; /* Makes it appear on a new line or allows for easier right alignment */
+    display: block;
     margin-top: 4px;
 }
 
@@ -394,8 +383,8 @@ body {
     margin-bottom: 6px;
 }
 
-.content-card strong { /* For tech stacks or important keywords */
-    color: var(--highlight-color); /* AWS Orange or your highlight */
+.content-card strong {
+    color: var(--highlight-color);
 }
 
 .content-card a {
@@ -408,14 +397,46 @@ body {
     text-decoration: underline;
 }
 
-/* Specific styling for the "Site Infrastructure Log" which uses a <pre> tag */
-#aws-info .code-block { /* Keep the existing preformatted style, but maybe wrap it in a card too */
-    /* If you want the <pre> block itself to be a card: */
-    /* background-color: #111; (already set) */
-    /* padding: 20px; (already set) */
-    /* border-radius: 8px; (add if not set) */
-    /* box-shadow: 0 4px 15px rgba(0,0,0,0.25); (add if not set) */
-    /* border: 1px solid var(--border-color); (already set) */
-    /* margin-bottom: 25px; (add if not set) */
-    /* We'll just ensure it doesn't conflict if it's the only item */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    /* For mobile, we revert to a more traditional scrolling layout */
+    html, body {
+        height: auto; /* Allow natural height */
+        overflow-y: auto; /* Allow body to scroll */
+    }
+    .command-center {
+        flex-direction: column;
+        height: auto; /* Allow natural height */
+        overflow: visible; /* Allow content to flow */
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        height: auto; /* Allow sidebar to grow with content */
+        overflow: visible; /* Allow content to flow */
+    }
+    .main-nav {
+        overflow-y: visible; /* No specific scroll for nav on mobile if sidebar is auto height */
+        margin-bottom: 15px; /* Keep consistent spacing */
+    }
+    .main-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav li a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+    .content-area {
+        padding: 20px;
+        height: auto; /* Allow natural height */
+        overflow-y: visible; /* No specific scroll for content area if command-center flows */
+    }
+    .sidebar-footer {
+        margin-top: 10px; /* Adjust if needed, auto might not work as well here */
+        padding-bottom: 10px; /* Ensure space at the bottom */
+    }
 }
