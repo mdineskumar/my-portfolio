@@ -1,0 +1,36 @@
+# Name of your workflow
+name: Deploy Portfolio to S3
+
+# This workflow runs on any push to the 'main' branch
+on:
+  push:
+    branches:
+      - main  # Or 'master', depending on your branch name
+
+jobs:
+  deploy:
+    # Use the latest version of Ubuntu as the runner
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out your repository code so the workflow can access it
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Configure AWS credentials
+      # This action uses the secrets you stored to authenticate with AWS
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          # IMPORTANT: Replace 'us-east-1' with your S3 bucket's region
+          aws-region: us-east-1 
+
+      # Step 3: Deploy/Sync files to S3
+      # The 'aws s3 sync' command is efficient, only uploading changed files.
+      # The '--delete' flag removes files from S3 that are no longer in the repository.
+      - name: Deploy static site to S3 bucket
+        run: |
+          aws s3 sync . s3://myportfolio-dineskumar --delete
+          # IMPORTANT: Replace 'your-bucket-name' with your actual S3 bucket name
